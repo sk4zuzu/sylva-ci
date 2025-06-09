@@ -1,0 +1,43 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1749401433,
+        "narHash": "sha256-HXIQzULIG/MEUW2Q/Ss47oE3QrjxvpUX7gUl4Xp6lnc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "08fcb0dcb59df0344652b38ea6326a2d8271baff",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "sylva-core": "sylva-core"
+      }
+    },
+    "sylva-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747692712,
+        "narHash": "sha256-7XzPLzuOlhFyD6abGRV0NotZ1V/As2oQp3eHDdCmkVM=",
+        "ref": "capone",
+        "rev": "796799dff16b12852220179f6025bc9e8db6071e",
+        "revCount": 6799,
+        "type": "git",
+        "url": "https://gitlab.com/mopala/sylva-core.git"
+      },
+      "original": {
+        "ref": "capone",
+        "type": "git",
+        "url": "https://gitlab.com/mopala/sylva-core.git"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

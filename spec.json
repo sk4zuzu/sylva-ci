@@ -1,0 +1,14 @@
+{
+  "sylva-ci": {
+    "enabled": 1,
+    "hidden": false,
+    "description": "sylva-ci",
+    "flake": "github:sk4zuzu/sylva-ci",
+    "checkinterval": 30,
+    "schedulingshares": 100,
+    "enableemail": false,
+    "emailoverride": "",
+    "keepnr": 1,
+    "type": 1
+  }
+}
