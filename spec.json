@@ -1,0 +1,26 @@
+{
+  "hydra-ci-test1": {
+    "enabled": 1,
+    "hidden": false,
+    "description": "hydra-ci",
+    "flake": "path:/var/tmp/hydra-ci/test1",
+    "checkinterval": 30,
+    "schedulingshares": 100,
+    "enableemail": false,
+    "emailoverride": "",
+    "keepnr": 1,
+    "type": 1
+  },
+  "hydra-ci-test2": {
+    "enabled": 1,
+    "hidden": false,
+    "description": "hydra-ci",
+    "flake": "path:/var/tmp/hydra-ci/test2",
+    "checkinterval": 30,
+    "schedulingshares": 100,
+    "enableemail": false,
+    "emailoverride": "",
+    "keepnr": 1,
+    "type": 1
+  }
+}
