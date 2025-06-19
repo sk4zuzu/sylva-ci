@@ -1,0 +1,76 @@
+cluster:
+  capi_providers:
+    infra_provider: capone
+    bootstrap_provider: cabpr
+
+  capone:
+    public_network: service
+
+    master_template: capone-wkld-master
+    worker_template: capone-wkld-worker
+
+    images:
+      - imageName: capone-wkld-node
+        imageContent: |
+          PATH = "https://marketplace.opennebula.io/appliance/4562be1a-4c11-4e9e-b60a-85a045f1de05/download/0"
+          DEV_PREFIX = "vd"
+
+    templates:
+      - templateName: capone-wkld-master
+        templateContent: |
+          CONTEXT = [
+            NETWORK = "YES",
+            SET_HOSTNAME = "$NAME",
+            SSH_PUBLIC_KEY = "$USER[SSH_PUBLIC_KEY]",
+            TOKEN = "YES" ]
+          CPU = "1"
+          CPU_MODEL = [
+            MODEL = "host-passthrough" ]
+          DISK = [
+            IMAGE = "capone-wkld-node",
+            SIZE = "65536" ]
+          GRAPHICS = [
+            LISTEN = "0.0.0.0",
+            TYPE = "vnc" ]
+          HYPERVISOR = "kvm"
+          LXD_SECURITY_PRIVILEGED = "true"
+          MEMORY = "12288"
+          OS = [
+            ARCH = "x86_64",
+            FIRMWARE_SECURE = "YES" ]
+          SCHED_REQUIREMENTS = "HYPERVISOR=kvm"
+          VCPU = "8"
+      - templateName: capone-wkld-worker
+        templateContent: |
+          CONTEXT = [
+            NETWORK = "YES",
+            SET_HOSTNAME = "$NAME",
+            SSH_PUBLIC_KEY = "$USER[SSH_PUBLIC_KEY]",
+            TOKEN = "YES" ]
+          CPU = "1"
+          CPU_MODEL = [
+            MODEL = "host-passthrough" ]
+          DISK = [
+            IMAGE = "capone-wkld-node",
+            SIZE = "65536" ]
+          GRAPHICS = [
+            LISTEN = "0.0.0.0",
+            TYPE = "vnc" ]
+          HYPERVISOR = "kvm"
+          LXD_SECURITY_PRIVILEGED = "true"
+          MEMORY = "6144"
+          OS = [
+            ARCH = "x86_64",
+            FIRMWARE_SECURE = "YES" ]
+          SCHED_REQUIREMENTS = "HYPERVISOR=kvm"
+          VCPU = "4"
+
+  control_plane_replicas: 1
+
+  machine_deployments:
+    md0:
+      replicas: 2
+
+cluster_virtual_ip: 172.20.86.11
+
+display_external_ip: 172.20.86.10
